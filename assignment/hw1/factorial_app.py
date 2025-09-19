@@ -36,6 +36,8 @@ def run_with_time(func,n):
 
 # 메뉴 설정
 def main():
+    print("팩토리얼 계산기(반복/재귀 - 정수 n >= 0 을 입력하세요.)")
+    print()
     while True:
         print("================ Factorial Tester ================")
         print("1) 반복법으로 n! 계산")
@@ -43,6 +45,7 @@ def main():
         print("3) 두 방식 모두 계산 후 결과/시간 비교")
         print("4) 준비된 테스트 데이터 일괄 실행")
         print("q) 종료")
+        print("--------------------------------------------------")
         choice = input("선택: ")
         
         if choice == 'q':
@@ -91,6 +94,7 @@ def main():
         
         else:
             print("메뉴에서 1,2,3,4,q 중 선택해주세요.")
+        print()
 
 if __name__ == "__main__":
     main()

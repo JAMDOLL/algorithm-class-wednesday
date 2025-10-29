@@ -215,4 +215,6 @@ if __name__ == "__main__":
 	print("높이 5인 이진트리의 최소 노드 수:", min_nodes_in_binary_tree(5))
 	print("높이 5인 이진트리의 최대 노드 수:", max_nodes_in_binary_tree(5))	
 	print("연결되지않은 링크 수:", count_none_links(root))
+
+
 	

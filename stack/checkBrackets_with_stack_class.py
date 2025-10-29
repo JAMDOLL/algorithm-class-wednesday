@@ -18,6 +18,7 @@ def checkBrackets(statement):
             stack.pop()
         else:
             pass # 괄호가 아니면 무시
+        
     return stack.is_empty() # True -> 검사 성공, False -> 조건 1 위반: 여는 괄호가 남아 있음
 
 # 테스트 하기

@@ -43,7 +43,7 @@ class CircularQueueOneSlotEmpty:
         if not self.is_empty():
             return self.array[(self.front+1) % self.N]
         else:
-            raise IndexError("빈 큐에서 삭제 연산 수행")
+            raise IndexError("빈 큐에서 peek 연산 수행")
         
     def size(self): # 현재 원형 큐에 저장된 요소의 총 개수
             return (self.rear - self.front + self.N) % self.N

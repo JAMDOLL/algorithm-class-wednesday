@@ -21,10 +21,10 @@ class Node:
 
     # 노드 기반 삭제 연산
     def popNext(self):
-        delete = self.link
-        if delete is not None:
-            self.link = delete.link
-            delete.link = None
+        delete = self.link # delete = self의 다음 노드
+        if delete is not None: 
+            self.link = delete.link # self의 다음 노드는 delete의 다음 노드로 수정
+            delete.link = None # delete의 다음 노드를 None으로 바꿔서 아무도 delete를 가리키지 않게됨(사라짐)
         return delete
 
 
@@ -56,7 +56,7 @@ class LinkedList:
     def is_full(self):
         return False # 연결 리스트는 포화 상태 X
     
-    def getNode(self,pos): # pos 기반 연산
+    def getNode(self, pos): # pos 기반 연산
         # pos 위치에 있는 노드를 반환
         # pos는 리스트의 인덱스 0부터 고려
         if pos < 0 : return None # pos는 유효하지 않은 위치
@@ -70,7 +70,7 @@ class LinkedList:
                 ptr = ptr.link
             return ptr
 
-    def getEntry(self,pos): 
+    def getEntry(self, pos): 
         # 리스트의 pos 위치에 있는 노드를 찾아 데이터 값을 변환
         node = self.getNode(pos) # getNode()를 사용해 해당 위치의 노드를 찾음
         if node == None: # 해당 노드가 없는 경우
@@ -78,7 +78,7 @@ class LinkedList:
         else:
             return node.data # 있는 경우 노드의 데이터 반환
         
-    def insert(self,pos,elem): # 인덱스 기반 연산 
+    def insert(self, pos, elem): # 인덱스 기반 연산 
         if pos < 0:
             raise ValueError("잘못된 위치 값입니다.")
         new = Node(elem) # 1. 새 노드 생성
@@ -94,7 +94,7 @@ class LinkedList:
         else: # c. 중간 노드로 삽입
             before.append(new)
 
-    def delete(self,pos): # 인덱스 기반 연산
+    def delete(self, pos): # 인덱스 기반 연산
         # pos 위치에서 해당 노드 삭제 연산
         if pos < 0:
             raise ValueError("잘못된 위치 값입니다.")
@@ -123,7 +123,7 @@ class LinkedList:
                 count += 1
             return count
     
-    def display(self,msg="LinkedList:"):
+    def display(self, msg="LinkedList:"):
         # 리스트의 내용을 출력
         print(msg, end=" ")
         if self.head == None: # 현재 리스트가 공백 상태면
@@ -135,17 +135,24 @@ class LinkedList:
                 ptr = ptr.link
             print("None")
     
-    def replace(self,pos,elem): # 인덱스 기반의 연산
+    def replace(self, pos, elem): # 인덱스 기반의 연산
         # 리스트 pos 위치에 있는 노드의 데이터 필드를 수정
         node = self.getNode(pos)
-        if node != None: # 해당 노드가 있는 경우
+        if node is not None: # 해당 노드가 있는 경우
             node.data = elem
-
-
- 
+        else:
+            return None
+        
 # 연습문제2: 어떤 요소를 찾아 위치를 반환하는 함수를 정의하기 : 리스트에 없으면 -1 반환, 있으면 그 위치를 정수로 반환
-
-    
+    def find(self, elem):
+        ptr = self.head
+        index = 0
+        while ptr is not None:
+            if ptr.data == elem:
+                return index
+            ptr=ptr.link
+            index += 1
+        return -1
    
 #=========================================================
 # 테스트 프로그래램

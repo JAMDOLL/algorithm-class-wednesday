@@ -24,7 +24,7 @@ class DNode:
         if new is not None:
             new.next = self.next   # new의 다음 노드는 self 노드의 다음 노드
             new.prev = self  # new의 이전 노드는 self
-            if new.next != None:
+            if new.next is not None:
                 new.next.prev = new
             self.next = new
 
@@ -49,36 +49,36 @@ class DNode:
         - isEmpty(): 리스트가 비어있는지 확인 
         - isFull(): 리스트가 가득 찼는지 확인
         - getEntry(pos): 특정 위치의 노드 데이터를 반환
+        - replace(pos, elem): 특정 위치의 노드 데이터를 변경   
     - 연산에서 .link -> .next로 수정
         - getNode(pos): 특정 위치의 노드를 반환 
         - size(): 리스트의 크기를 반환
         - display(msg): 리스트의 내용을 출력
     - 나머지 연산       
         - insert(pos, elem): 특정 위치에 새 노드를 삽입
-        - delete(pos): 특정 위치의 노드를 삭제
-        - replace(pos, elem): 특정 위치의 노드 데이터를 변경        
+        - delete(pos): 특정 위치의 노드를 삭제     
 """
 class DLinkedList:                       
     def __init__( self ):             
       self.head = None
     #   self.tail = None
 
-    def isEmpty( self ):      
+    def is_empty( self ):      
        return self.head == None       
 
-    def isFull( self ):     
+    def is_full( self ):     
        return False                  
     
     def getEntry(self, pos): 
         node = self.getNode(pos)      
-        if node == None:              
-            return None               
+        if node is not None:              
+            return node.data               
         else:                      
-            return node.data  
+            return None  
 
     def replace(self, pos, elem) : 
         node = self.getNode(pos)       
-        if node != None :       
+        if node is not None :       
           node.data = elem          
         else :                 
             return None

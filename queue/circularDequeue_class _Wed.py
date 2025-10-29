@@ -21,10 +21,9 @@ from circular_queue_class import CircularQueueOneSlotEmpty
 
 class CircularDeque(CircularQueueOneSlotEmpty):
     def __init__(self,capacity):
+        # self.is_empty(), self.is_full(), self.size(), self.display(): 상속
         super().__init__(capacity)
 
-
-    # self.is_empty(), self.is_full(), self.size(), self.display(): 상속
     def delete_front(self): # 전단에서 삭제
         return self.dequeue()
 

@@ -25,7 +25,7 @@ class RingBuffer:
         return self.q.size()
     
     def display(self,msg="RingBuffer:"):
-        return self.q.display(msg + "내부 링버퍼의 상태")
+        return self.q.display(msg + " 내부 링버퍼의 상태")
 
     def read(self):
         # 링버퍼에서 가장 오래된 데이터 삭제 연산
@@ -94,7 +94,7 @@ def quiz_3():
     for i in range(1,21):
         rb.enqueue2(i)
         print(i, end=" ")
-        rb.display("삽입 후 :")
+        rb.display("삽입 후")
     
     # 3. 링버퍼에 남은 요소 관련 정보 출력
     print(f"front={rb.q.front}, rear={rb.q.rear}, size={rb.q.size()}/{rb.q.capacity}")

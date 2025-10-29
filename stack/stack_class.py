@@ -39,6 +39,17 @@ class ArrayStack:
 
     def size(self):
         return self.top + 1
+    
+    # 연습 문제 1-2: 스택을 초기화하는 claer() 함수
+    def claer(self):
+        self.array = []
+        self.top = -1
+    
+   # 연습 문제 1-3 가장 먼저 들어온 요소부터 순서대로 출력하는 display() 함수
+    def display(self):
+        for i in range(self.top+1): # 0 ~ self.top 까지
+            print(self.array[i], end=" ") 
+        print()
 
 # 스택 클래스를 이용한 문자열 거꾸로 뒤집어 출력하기
 def reverse_string(statement: str) -> str:
@@ -55,7 +66,7 @@ def reverse_string(statement: str) -> str:
     result = ''.join(out)
     print(f"\n[3] 최종 결과: {result}")
     return result
-
+    
 
 # 테스트 하기
 def test_reverse():
@@ -68,12 +79,13 @@ def test_reverse():
         got = reverse_string(s)
         assert got == expected, f"input={s!r}, got={got!r}"
 
-
 if __name__ == "__main__":
     test_reverse()
 
-
-
-
-
-
+# 연습 문제 1-6: 문자열 뒤집기를 순환 호출을 사용하여 구현
+def printReverse(msg, len):
+    if len > 0:
+        print(msg[len-1], end="")
+        printReverse(msg,len-1)
+instr = "자료구조"
+printReverse(instr, len(instr))

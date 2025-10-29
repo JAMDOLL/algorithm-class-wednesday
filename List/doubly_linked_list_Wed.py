@@ -183,6 +183,7 @@ ll.display("연결리스트(교체X1-> 90으로 변경): ")     # 출력: Linked
 ll.delete(2)      # 세 번째 노드 삭제
 ll.delete(3)      # 네 번째 노드 삭제
 ll.delete(0)      # 첫 번째 노드 삭제
+
 ll.display("연결리스트(삭제x3): "   )      # 출력: LinkedList: 30->10->None
 
 print("연결리스트의 크기= ", ll.size())  # 출력: 연결리스트의 크기= 2

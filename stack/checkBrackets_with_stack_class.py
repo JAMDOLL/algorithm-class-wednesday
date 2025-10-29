@@ -29,6 +29,7 @@ def test_brackets():
         "while (n<8)) {n++;}", # False
         "arr[(i+1])=0;" # False
     ]
+    
 
     for t in tests:
         print(t, "->", checkBrackets(t))

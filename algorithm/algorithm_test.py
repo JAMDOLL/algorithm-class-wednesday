@@ -71,3 +71,4 @@ if __name__ == "__main__":
     insert_sorted_array = insertion_sort(data)
     print(insert_sorted_array)
     # print(f"최대값: {}, 비교 연산 횟수: {}, 이동 연산 횟수: {}")
+    

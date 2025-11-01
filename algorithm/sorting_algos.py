@@ -3,10 +3,32 @@ import time
 import matplotlib.pyplot as plt # type: ignore
 from collections import deque
 
+# ======================================================
+# 1. 정렬 알고리즘
+# ======================================================
+def selection_sort(arr): # 선택 정렬
+    a = arr[:] # 원본 복사
+    n = len(arr) # 입력 크기
+    for i in range(n-1): # i 번째 위치에 최소값을 선택 배치
+        min_idx = i # 최소값의 인덱스
+        for j in range(i+1, n): # 미정렬 구간 탐색
+            if a[j] < a[min_idx]: # 더 작은 값을 발견
+                min_idx = j
+        a[i],a[min_idx] = a[min_idx],a[i] # i 번째 위치와 최소값의 위치를 교환
+    return a 
 
-
-
-
+def insertion_sort(arr): # 삽입 정렬
+    a = arr[:] # 원본 복사
+    n = len(arr) # 입력 크기
+    for i in range(1,n): # 두 번째 요소부터 시작
+        key = a[i] # 삽입할 요소
+        # 삽입할 요소의 삽입 위치 찾기
+        j = i-1
+        while j >= 0 and a[j] > key:
+            a[j+1]= a[j] # 뒤쪽으로 한 칸 이동
+            j -= 1 # 왼쪽으로 한 칸 이동
+        a[j+1] = key # 삽입할 위치
+    return a
 
 # ======================================================
 # 2. 실행 시간 측정 함수
